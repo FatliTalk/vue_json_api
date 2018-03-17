@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>实现vuejs数据驱动界面（可输入字数提醒），删除评论、修改字体大小、弹框功能</title>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/vue/1.0.26/vue.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" media="screen" title="no title" charset="utf-8">
+        <!-- https://daneden.github.io/animate.css/ 用于弹框弹出效果，这里的弹框效果是bounce -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
+
+    </head>
+
+    <body id="app">
+<!-- style标签一般放在head标签中，现代浏览器放在body中也没问题。
+    因为 Vue 的data数据是控制body部分的，所以为了控制字体，style标签内容需要放在body中 -->
+    <style type="text/css">
+            .ui.segment.container {
+                width: 700px;
+            }
+
+            h1 {
+                font-family:'Oswald', sans-serif; font-size:40px!important;
+            }
+
+            p {
+                font-family: 'Raleway', sans-serif;
+                /*font-size:18px;*/
+                font-size: {{ article.fontSize }}px;
+            }
+
+            body {
+                background: url(../static/images/star_banner.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                /*background-attachment 属性设置背景图像是否固定或者随着页面的其余部分滚动。
+                scroll：默认值,滚动。fixed：当页面的其余部分滚动时，背景图像不会移动。*/
+                background-attachment: fixed;
+            }
+
+        </style>
+
+        <!-- 弹框 modal-->
+        <!-- <div class="ui dimmer active" v-if="false"> -->
+        <!-- <div class="ui dimmer active" v-if="!modal.show" v-on:click="modal.show = !modal.show"> -->
+        <!-- v-on:click="functionName" -->
+        <div class="bounce ui dimmer active" v-if="!modal.show" v-on:click="modalSwitch">
+            <div class="ui modal active">
+                <h3 class="ui header">This is a header!</h3>
+            </div>
+        </div>
+
+        <div class="ui segment padded container">
+            <!-- 添加一个 + 号 -->
+            <button v-on:click="article.fontSize+=5" class="ui top left attached label" type="button" name="button">
+                +
+            </button>
+            <h1 class="ui header">
+                <!-- Vue.js 使用 “Mustache” 语法（双大括号）->数据绑定 -->
+                <!-- 从（Django）后端获取数据，使用json方式进行前后端数据交互 -->
+                {{ article.title }}
+                {{ article.fontSize }}
+            </h1>
+            <p>
+                {{ article.content }}
+            </p>
+
+            <!-- 添加一按钮，作为弹框触发器 -->
+            <!-- <button v-on:click="modal.show = !modal.show" class="ui inverted blue button" type="button" name="button">弹框</button> -->
+            <!-- v-on:click="functionName" -->
+            <button v-on:click="modalSwitch" class="ui inverted blue button" type="button" name="button">弹框</button>
+
+        </div>
+
+        <!-- Comments&Form's here -->
+        <div class="ui segment container" style="width: 700px;">
+            <h3 class="ui header" style="font-family: 'Oswald', sans-serif;">Comments</h3>
+
+            <!-- Vue.js  for遍历:遍历下面js-data中的comments列表数据 -->
+            <!-- Django中的for循环：
+            {% for comment in comments %}
+            {% endfor %} -->
+            <div v-for="comment in comments" class="ui comments">
+                <div class="comment" v-if="comment.show">
+                    <div class="avatar">
+                        <img src="http://semantic-ui.com/images/avatar/small/matt.jpg" alt="头像" />
+                    </div>
+                    <div class="content">
+                        <!-- Vue.js 数据绑定 -->
+                        <a href="#" class="author">{{ comment.name }}</a>
+                        <p class="text" style="font-family: 'Raleway', sans-serif;">
+                            {{ comment.said }}
+                        </p>
+
+                        <div class="">
+                            <button v-on:click="comment.show = !comment.show">spam</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment" v-else>
+                    <h3 class="ui sub header">Opps!</h3>
+                </div>
+
+            </div>
+
+            <!-- 分割线 -->
+            <div class="ui divider"></div>
+            <h3 class="ui header"> 你还可以输入 {{ 200 - message.length }} 字 </h3>
+
+            <form class="ui form" action="index.html" method="post">
+                <!-- Vue.js -->
+                <input v-model="message" type="text" name="">
+            </form>
+
+        </div>
+
+        <!-- Vue.js -->
+        <script>
+            var vm = new Vue({
+                el: "#app",
+                // 类似 Django 中的 context
+                data: {
+                    modal:{
+                        show:true,
+                    },
+                    // 此处的 JS 对象，类似在 Django 中的字典类型：context['article'] = article
+                    article:{
+                        title: "字体大小",
+                        content: "Hi there",
+                        // 增加控制article对象字体大小的属性（字段）
+                        fontSize: 18,
+                    },
+                    // JS列表
+                    comments:[
+                        {name:"Fatli", said:"Great!",show:true},
+                        {name:"Fatli", said:"Great!",show:true},
+                        {name:"Fatli", said:"Great!",show:true},
+                        {name:"Fatli", said:"Great!",show:true},
+                    ]
+                },
+                // v-on:click="functionName"
+                methods:{
+                    modalSwitch:function () {
+                        this.modal.show = !this.modal.show
+                    },
+                },
+                // 网页加载好，就马上做某事
+                ready:function () {
+                    this.modalSwitch()
+                }
+            })
+        </script>
+
+    </body>
+</html>

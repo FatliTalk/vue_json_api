@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Reqwest：替代JQuery处理Ajax</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reqwest/2.0.5/reqwest.js"></script>
+</head>
+<body>
+    <h1>Hello Reqwest!</h1>
+
+    <!-- 可在浏览器console控制台中查看数据 -->
+    <!-- 下面script标签中的内容复制到article-detail.html文件到getData函数中 -->
+    <script>
+        var a = {}
+        // 在reqwest函数中传入JS对象
+        reqwest({
+            // 要请求哪个网址
+            url:"https://swapi.co/api/people/1/",
+            // 要请求的格式：html、xml、json、jsonp
+            type:"json",
+            // 请求的方法：默认是GET方法
+            method:"get",
+            // 要传递的参数：PATCH，POST和PUT请求。必须是查询String或JSON对象
+            // data:{tag:"life"},
+            // 如何处理取得的数据：请求成功完成时调用的函数
+            success:function (resp) {
+                // 把取得的数据放到变量a中
+                a = resp
+            }
+        })
+    </script>
+
+</body>
+</html>
