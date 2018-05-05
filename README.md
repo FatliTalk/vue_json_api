@@ -26,7 +26,7 @@ https://fatlitalk.github.io/vue_json_api/index-old.html
 
 ## 二、Vue-使用JSON和AJAX传递API数据
 
-> Vue-使用JSON和AJAX传递API数据：通过[Reqwest](https://github.com/ded/reqwest)库处理Ajax，动态获取swapi.co的API数据，而不是在页面中手动输入，输出静态页面。
+> Vue-使用JSON和AJAX传递API数据：通过[Reqwest](https://github.com/ded/reqwest)库处理Ajax，动态获取[swapi.co](https://swapi.co/api/people/?format=json)的API数据，而不是在页面中手动输入，输出静态页面。
 
 https://fatlitalk.github.io/vue_json_api/
 
