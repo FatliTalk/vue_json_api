@@ -1,5 +1,6 @@
 # vue_json_api
-Vue-使用JSON和AJAX传递API数据。还有vuejs数据驱动界面（可输入字数提醒），删除评论、修改字体大小、弹框功能
+使用Vue.js通过JSON传递API数据。
+还有Vuejs实现数据驱动界面（可输入字数提醒）、删除评论、修改字体大小、弹框功能，Vue.js实现loading等待效果和filter过滤器效果，Reqwest处理Ajax ...
 
 <br>
 <br>
@@ -46,7 +47,7 @@ https://fatlitalk.github.io/vue_json_api/
 # 三、Vue-使用JSON和AJAX传递API数据+loading加载和filter过滤器
 
 > Vue-使用JSON和AJAX传递API数据：过Reqwest库处理Ajax，动态获取swapi.co的API数据，而不是在页面中手动输入，输出静态页面。
-> 增加Vue.js的computed计算属性：1.动态数据呈现：用Vue.js实现loading效果；2.已有资源的二次加工：filter过滤器效果。
+> 增加Vue.js的computed计算属性：1.动态数据呈现：用Vue.js实现loading效果；2.已有资源的二次加工：filter过滤器效果（过滤身高低于100cm的）。
 
 https://fatlitalk.github.io/vue_json_api/index-new-loading&filter.html 
 
