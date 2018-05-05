@@ -3,11 +3,12 @@ Vue-使用JSON和AJAX传递API数据。还有vuejs数据驱动界面（可输入
 
 <br>
 <br>
+<br>
 
 
-# 一、实现vue数据驱动界面等功能+Animate.css弹框效果bounce
+## 一、实现vue数据驱动界面等功能
 
-> 实现vuejs数据驱动界面（可输入字数提醒），删除评论、修改字体大小、弹框功能。
+> 实现vuejs数据驱动界面（可输入字数提醒），删除评论、修改字体大小、弹框功能（[Animate.css](https://daneden.github.io/animate.css/)弹框效果：bounce）。
 
 https://fatlitalk.github.io/vue_json_api/index-old.html
 
@@ -18,8 +19,12 @@ https://fatlitalk.github.io/vue_json_api/index-old.html
 <br>
 <br>
 
+---
 
-# 二、Vue-使用JSON和AJAX传递API数据
+<br>
+<br>
+
+## 二、Vue-使用JSON和AJAX传递API数据
 
 > Vue-使用JSON和AJAX传递API数据：通过Reqwest库处理Ajax，动态获取swapi.co的API数据，而不是在页面中手动输入，输出静态页面。
 
@@ -32,11 +37,16 @@ https://fatlitalk.github.io/vue_json_api/
 <br>
 <br>
 
+---
+
+<br>
+<br>
+
 
 # 三、Vue-使用JSON和AJAX传递API数据+loading加载和filter过滤器
 
 > Vue-使用JSON和AJAX传递API数据：过Reqwest库处理Ajax，动态获取swapi.co的API数据，而不是在页面中手动输入，输出静态页面。
-> 增加Vue.js的computed计算属性：1.动态数据呈现：用Vue.js实现loading效果；2.已有资源的二次加工：过滤器效果。
+> 增加Vue.js的computed计算属性：1.动态数据呈现：用Vue.js实现loading效果；2.已有资源的二次加工：filter过滤器效果。
 
 https://fatlitalk.github.io/vue_json_api/index-new-loading&filter.html 
 
@@ -47,7 +57,12 @@ https://fatlitalk.github.io/vue_json_api/index-new-loading&filter.html
 <br>
 <br>
 
-# 附：Reqwest：替代JQuery处理Ajax
+---
+
+<br>
+<br>
+
+## 附：[Reqwest](https://github.com/ded/reqwest)：替代JQuery处理Ajax
 
 ```javascript
 <script>
@@ -79,4 +94,3 @@ https://fatlitalk.github.io/vue_json_api/tryReqwest.html ：
 <br>
 
 ![Reqwest：替代JQuery处理Ajax](https://raw.githubusercontent.com/FatliTalk/vue_json_api/gh-pages/images/02.png)
-
